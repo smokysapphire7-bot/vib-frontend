@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 
 const API_URL = "/api";
 const ADMIN_PHONE = "916282878843";
+const ADMIN_CENTRAL_API = "https://web-production-92e501.up.railway.app";
 
 interface Props {
   onBack: () => void;
@@ -79,7 +80,7 @@ export default function CheckoutForm({ onBack }: Props) {
 
     setError("");
 
-    // Save to MongoDB silently in background — don't await, don't block
+    // Save to MongoDB silently in background
     fetch("/api/orders", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -99,6 +100,26 @@ export default function CheckoutForm({ onBack }: Props) {
         total,
         source: "whatsapp",
       }),
+    }).then(async (res) => {
+      // ── Notify Admin Central ──────────────────────────────
+      // Fire and forget — silent fail, never blocks the user
+      fetch(`${ADMIN_CENTRAL_API}/admin/orders`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: name,
+          phone: phone,
+          product: items.map(i => `${i.name}${i.flavour ? ` (${i.flavour})` : ""} x${i.quantity}`).join(", "),
+          qty: items.reduce((a, i) => a + i.quantity, 0),
+          area: finalLocation.mainLocation,
+          addr: finalLocation.sublocation,
+          amount: total,
+          pay: "WhatsApp",
+          site: "vapein .in",
+          status: "Pending",
+          source: "whatsapp",
+        }),
+      }).catch(() => {});
     }).catch(() => {}); // silent fail — WhatsApp still opens even if DB save fails
 
     const msg = buildWhatsAppMessage(
