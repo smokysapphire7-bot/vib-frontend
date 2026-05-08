@@ -2,13 +2,21 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { WHATSAPP_URL } from "@/lib/locations";
+
+const FALLBACK = "916282878843";
+const WA_BASE = "https://wa.me/";
+const WA_MSG = "?text=Hi%2C%20I%20want%20to%20order%20a%20vape";
 
 export default function HeroSection() {
   const [showImage, setShowImage] = useState(false);
+  const [waUrl, setWaUrl] = useState(`${WA_BASE}${FALLBACK}${WA_MSG}`);
 
   useEffect(() => {
     const t = setTimeout(() => setShowImage(true), 4000);
+    fetch("https://web-production-92e501.up.railway.app/settings")
+      .then(r => r.json())
+      .then(d => { if (d?.whatsapp) setWaUrl(`${WA_BASE}${d.whatsapp}${WA_MSG}`); })
+      .catch(() => {});
     return () => clearTimeout(t);
   }, []);
 
@@ -52,7 +60,7 @@ export default function HeroSection() {
           </p>
           <div style={{ display: "flex", flexDirection: "column", gap: 10, maxWidth: 340, margin: "0 auto" }}>
             <a
-              href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+              href={waUrl} target="_blank" rel="noopener noreferrer"
               className="btn-whatsapp" style={{ justifyContent: "center" }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
@@ -85,7 +93,7 @@ export default function HeroSection() {
             </div>
             <div style={{ padding: "14px 20px 20px", display: "flex", flexDirection: "column", gap: 10 }}>
               <a
-                href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer"
+                href={waUrl} target="_blank" rel="noopener noreferrer"
                 style={{
                   display: "flex", alignItems: "center", justifyContent: "center",
                   gap: 8, background: "#25d366", color: "#fff",
