@@ -100,27 +100,26 @@ export default function CheckoutForm({ onBack }: Props) {
         total,
         source: "whatsapp",
       }),
-    }).then(async (res) => {
-      // ── Notify Admin Central ──────────────────────────────
-      // Fire and forget — silent fail, never blocks the user
-      fetch(`${ADMIN_CENTRAL_API}/orders/new`, { keepalive: true,
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: name,
-          phone: phone,
-          product: items.map(i => `${i.name}${i.flavour ? ` (${i.flavour})` : ""} x${i.quantity}`).join(", "),
-          qty: items.reduce((a, i) => a + i.quantity, 0),
-          area: finalLocation.mainLocation,
-          addr: finalLocation.sublocation,
-          amount: total,
-          pay: "WhatsApp",
-          site: "vapein .in",
-          status: "Pending",
-          source: "whatsapp",
-        }),
-      }).catch(() => {});
-    }).catch(() => {}); // silent fail — WhatsApp still opens even if DB save fails
+    }).catch(() => {});
+
+    // ── Notify Admin Central independently ───────────────
+    fetch(`${ADMIN_CENTRAL_API}/orders/new`, { keepalive: true,
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        name: name,
+        phone: phone,
+        product: items.map(i => `${i.name}${i.flavour ? ` (${i.flavour})` : ""} x${i.quantity}`).join(", "),
+        qty: items.reduce((a, i) => a + i.quantity, 0),
+        area: finalLocation.mainLocation,
+        addr: finalLocation.sublocation,
+        amount: total,
+        pay: "WhatsApp",
+        site: "vapein .in",
+        status: "Pending",
+        source: "whatsapp",
+      }),
+    }).catch(() => {});
 
     const msg = buildWhatsAppMessage(
       name,
