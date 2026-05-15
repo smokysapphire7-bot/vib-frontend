@@ -74,6 +74,18 @@ export default function Footer() {
             </div>
           </div>
 
+          {/* Cities We Serve */}
+          <div>
+            <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.82rem", color: "var(--white)", marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.06em" }}>
+              🌍 Cities We Serve
+            </p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 6 }}>
+              <a href="https://vapeinbangalore.in" style={{ fontSize: "0.78rem", color: "#16a34a", textDecoration: "none", fontWeight: 700 }}>✅ Bangalore — Active</a>
+              <a href="https://thevapesinmumbai.com" target="_blank" rel="noopener noreferrer" style={{ fontSize: "0.78rem", color: "#E23744", textDecoration: "none", fontWeight: 700 }}>🚀 Mumbai — Launching Soon</a>
+              <span style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.3)", marginTop: 4 }}>Hyderabad · Pune · Delhi — Coming Soon</span>
+            </div>
+          </div>
+
           {/* Quick Links */}
           <div>
             <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.82rem", color: "var(--white)", marginBottom: 10, textTransform: "uppercase", letterSpacing: "0.06em" }}>
