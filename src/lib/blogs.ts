@@ -521,10 +521,10 @@ ${CTA(true)}
 <h3>Elfbar BC 10000 — ₹2,199</h3>
 <p>Elegant transparent design showing e-liquid level. 10,000 puffs, mesh coil, 8 flavours. Popular in south Bangalore — BTM, Jayanagar, JP Nagar.</p>
 
-<h3>Elfbar Raya SOBO — ₹2,849</h3>
+<h3>Elfbar Raya SOBO — ₹3,199</h3>
 <p>The most advanced Elfbar in Bangalore. 40,000 puffs, interactive game display, 1100mAh battery lasting up to 5 days. The gold-etched design is as premium as it performs.</p>
 
-<h3>Elfbar MoonNight 40K — ₹2,899</h3>
+<h3>Elfbar MoonNight 40K — ₹2,999</h3>
 <p>40,000 puffs with an animated moon display and the unique Coffee flavour. The most visually striking Elfbar we stock — a statement device for Bangalore vapers.</p>
 
 <h3>Elfliq Nic Salts — ₹1,599</h3>
