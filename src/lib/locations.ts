@@ -120,6 +120,68 @@ export const locations: Location[] = [
     sublocations: ["Hoodi Circle", "Garudachar Palya"],
     localNote: "Hoodi's growing IT and residential mix is squarely in our delivery zone.",
   },
+
+  {
+    name: "The Leela Palace Bangalore",
+    slug: "leela-palace-bangalore",
+    sublocations: ["Old Airport Road", "HAL Area", "Kodihalli", "Indiranagar", "Domlur"],
+    localNote: "Staying at The Leela Palace? We deliver premium vapes discreetly to your room or lobby in 30-45 minutes.",
+  },
+  {
+    name: "ITC Gardenia Bangalore",
+    slug: "itc-gardenia-bangalore",
+    sublocations: ["Residency Road", "Richmond Circle", "MG Road", "Brigade Road", "Richmond Town"],
+    localNote: "ITC Gardenia guests enjoy fast discreet vape delivery — straight to your room in under 45 minutes.",
+  },
+  {
+    name: "Taj West End Bangalore",
+    slug: "taj-west-end-bangalore",
+    sublocations: ["Race Course Road", "Sadashivanagar", "Rajajinagar", "Malleswaram", "Seshadripuram"],
+    localNote: "Near Taj West End? We deliver to your hotel or nearby location with full discretion guaranteed.",
+  },
+  {
+    name: "JW Marriott Bangalore",
+    slug: "jw-marriott-bangalore",
+    sublocations: ["Vittal Mallya Road", "MG Road", "Brigade Road", "Lavelle Road", "Richmond Town"],
+    localNote: "JW Marriott guests — order on WhatsApp and receive your vapes within 30-45 minutes, discreetly packaged.",
+  },
+  {
+    name: "Oberoi Hotel Bangalore",
+    slug: "oberoi-hotel-bangalore",
+    sublocations: ["MG Road", "Brigade Road", "Lavelle Road", "Residency Road", "St Marks Road"],
+    localNote: "The Oberoi Bangalore area is fully covered — fast delivery, sealed packaging, 100% original products.",
+  },
+  {
+    name: "Conrad Bangalore",
+    slug: "conrad-bangalore",
+    sublocations: ["Vittal Mallya Road", "MG Road", "UB City", "Lavelle Road", "Richmond Town"],
+    localNote: "Conrad Bangalore guests — get premium vapes delivered to your room in under 45 minutes.",
+  },
+  {
+    name: "Hyatt Regency Bangalore",
+    slug: "hyatt-regency-bangalore",
+    sublocations: ["Old Airport Road", "HAL 2nd Stage", "Kodihalli", "Domlur", "Indiranagar"],
+    localNote: "Hyatt Regency Bangalore — we cover your area with 30-45 min delivery and discreet packaging.",
+  },
+  {
+    name: "Sheraton Grand Bangalore",
+    slug: "sheraton-grand-bangalore",
+    sublocations: ["Brigade Gateway", "Rajajinagar", "Malleswaram", "Yeshwanthpur", "Seshadripuram"],
+    localNote: "Sheraton Grand at Brigade Gateway — fast vape delivery to your hotel or nearby address.",
+  },
+  {
+    name: "St Regis Bangalore",
+    slug: "st-regis-bangalore",
+    sublocations: ["Residency Road", "Richmond Circle", "MG Road", "Lavelle Road", "Brigade Road"],
+    localNote: "St Regis Bangalore guests — premium vapes delivered discreetly within 30-45 minutes.",
+  },
+  {
+    name: "Four Seasons Bangalore",
+    slug: "four-seasons-bangalore",
+    sublocations: ["Yellahanka", "Hebbal", "Thanisandra", "Kogilu", "Jakkur"],
+    localNote: "Four Seasons Bangalore — we deliver to your hotel with complete discretion and 100% original products.",
+  },
+
   {
     name: "Hennur",
     slug: "hennur",
