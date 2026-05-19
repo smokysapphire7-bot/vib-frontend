@@ -97,6 +97,24 @@ export default async function ProductPage({ params }: Props) {
           "url": `https://vapeinbangalore.in/products/${product.slug}`,
           "areaServed": "Bangalore",
           "deliveryLeadTime": { "@type": "QuantitativeValue", "value": 0.5, "unitCode": "HUR" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "INR" },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "IN" },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "HUR" },
+              "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "HUR" }
+            }
+          },
+          "hasMerchantReturnPolicy": {
+            "@type": "MerchantReturnPolicy",
+            "applicableCountry": "IN",
+            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+            "merchantReturnDays": 2,
+            "returnMethod": "https://schema.org/ReturnByMail",
+            "returnFees": "https://schema.org/FreeReturn"
+          },
         },
       })}} />
 
