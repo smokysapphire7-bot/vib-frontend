@@ -34,7 +34,7 @@ ${itemLines}
 
 *Total: Rs.${total.toLocaleString()}*
 
-Please confirm my order. Thank you!`;
+Hi VapeInBangalore,\n\nPlease confirm my order. Thank you!`;
 
   return encodeURIComponent(message);
 }
