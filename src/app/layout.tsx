@@ -64,7 +64,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
         <meta name="theme-color" content="#f8c105" />
       </head>
-      <body>
+      <body suppressHydrationWarning>
         <CartProvider>
           <Nav />
           <main>{children}</main>
