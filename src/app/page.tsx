@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { locations } from "@/lib/locations";
 import { getWhatsAppNumber } from "@/lib/settings";
-import nextDynamic from "next/dynamic";
-const ProductGrid = nextDynamic(() => import("@/components/ProductGrid"), { ssr: false });
-const ProductTicker = nextDynamic(() => import("@/components/ProductTicker"), { ssr: false });
+import ProductGrid from "@/components/ProductGrid";
+import ProductTicker from "@/components/ProductTicker";
 import HeroSection from "@/components/HeroSection";
 
 export const metadata: Metadata = {
