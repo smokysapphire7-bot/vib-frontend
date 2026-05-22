@@ -187,7 +187,7 @@ export default async function ProductPage({ params }: Props) {
         {/* ── PRICE ── */}
         <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 20 }}>
           <span style={{ fontFamily: "var(--font-display)", fontSize: "2rem", fontWeight: 900, color: "var(--orange)" }}>
-            <LivePrice productName={product.name} basePrice=<LivePrice productName={product.name} basePrice={product.price} /> />
+            <LivePrice productName={product.name} basePrice={product.price} />
           </span>
           <span style={{ fontSize: "1rem", color: "var(--muted)", textDecoration: "line-through" }}>
             {product.originalPrice}
@@ -238,7 +238,7 @@ export default async function ProductPage({ params }: Props) {
                 {/* ── ORDER BUTTONS ── */}
         <OrderButton
           productName={product.name}
-          basePrice=<LivePrice productName={product.name} basePrice={product.price} />
+          basePrice={product.price}
           flavour={product.flavours[0]}
           whatsappNumber={WHATSAPP_NUMBER}
           allFlavours={product.flavours}
