@@ -582,10 +582,10 @@ ${CTA(true)}
 ${CTA(true)}
 
 <h2>Caliburn vs Disposables — Which is Better in Bangalore?</h2>
-<p>Disposables are easier — open and vape, no refilling. But if you vape regularly in Bangalore, a Caliburn pod device saves you significant money. A ₹1,599 bottle of Pod Salt Core nic salt gives you the equivalent of multiple disposables. The Caliburn G4 pays for itself within weeks for a daily vaper.</p>
+<p>Disposables are easier — open and vape, no refilling. But if you vape regularly in Bangalore, a Caliburn pod device saves you significant money. A ₹1,899 bottle of Pod Salt Core nic salt gives you the equivalent of multiple disposables. The Caliburn G4 pays for itself within weeks for a daily vaper.</p>
 
 <h2>What E-Liquid Works with Caliburn?</h2>
-<p>Any nic salt e-liquid works with Caliburn devices. We stock Pod Salt Core (₹1,599) and Elfliq Nic Salts (₹1,599) — both available with your Caliburn delivery in Bangalore.</p>
+<p>Any nic salt e-liquid works with Caliburn devices. We stock Pod Salt Core (₹6,899) and Elfliq Nic Salts (₹1,599) — both available with your Caliburn delivery in Bangalore.</p>
 
 ${CTA()}`,
   },
