@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     shortcut: "/favicon-48.png",
     apple: "/favicon-192.png",
   },
+  alternates: { canonical: "https://vapeinbangalore.in" },
   keywords: [
     "vape in bangalore",
     "vape delivery bangalore",
