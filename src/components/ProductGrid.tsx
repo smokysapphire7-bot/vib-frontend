@@ -402,9 +402,9 @@ export default function ProductGrid() {
                     ) : (
                       <button
                         onClick={() => handleAddToCart(product)}
-                        style={{ width: "100%", padding: "10px", background: justAdded ? "#10b981" : "var(--orange)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer", transition: "background 0.2s", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
+                        style={{ width: "100%", padding: "10px", background: justAdded ? "var(--orange-dim)" : "var(--orange)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer", transition: "background 0.2s", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
                       >
-                        {justAdded ? "✓ Added!" : selectedFlavour ? "+ Add to Cart" : "Select Flavour"}
+                        {justAdded ? "✓ Added!" : "+ Add to Cart"}
                       </button>
                     )}
                   </div>
