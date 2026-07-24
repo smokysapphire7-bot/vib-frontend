@@ -9,11 +9,11 @@ import CartDrawer from "@/components/CartDrawer";
 export const metadata: Metadata = {
   metadataBase: new URL("https://vapeinbangalore.in"),
   title: {
-    default: "VapeInBangalore — Buy Vape Online, 30 Min Delivery",
-    template: "%s | VapeInBangalore",
+    default: "Vape in Bangalore — Buy Vapes Online | 30-45 Min Delivery | VapeInBangalore.in",
+    template: "%s | VapeInBangalore.in",
   },
   description:
-    "Buy vape in Bangalore with 30-45 min delivery. Best disposable vapes & e-liquids delivered discreetly to BTM, HSR, Koramangala, Indiranagar, Whitefield and 20+ areas. Order on WhatsApp now.",
+    "Buy vapes in Bangalore with 30-45 min delivery. Elfbar, Caliburn, ZYN & more. Discreet delivery to BTM, HSR, Koramangala, Indiranagar, Whitefield and 50+ areas. Order on WhatsApp.",
   icons: {
     icon: [
       { url: "/favicon-48.png", sizes: "48x48", type: "image/png" },
@@ -62,6 +62,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" type="image/png" sizes="512x512" href="/favicon-512.png" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="apple-touch-icon" sizes="192x192" href="/favicon-192.png" />
+        <meta name="geo.region" content="IN-KA" />
+        <meta name="geo.placename" content="Bangalore" />
+        <meta name="geo.position" content="12.9716;77.5946" />
+        <meta name="ICBM" content="12.9716, 77.5946" />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: `{"@context":"https://schema.org","@type":"LocalBusiness","name":"VapeInBangalore.in","url":"https://vapeinbangalore.in","telephone":"+916282878843","address":{"@type":"PostalAddress","addressLocality":"Bangalore","addressRegion":"Karnataka","addressCountry":"IN"},"geo":{"@type":"GeoCoordinates","latitude":12.9716,"longitude":77.5946},"openingHours":"Mo-Su 10:00-22:00","priceRange":"₹₹","aggregateRating":{"@type":"AggregateRating","ratingValue":"4.9","reviewCount":"380","bestRating":"5"}}` }} />
         <meta name="theme-color" content="#f8c105" />
       </head>
       <body suppressHydrationWarning>

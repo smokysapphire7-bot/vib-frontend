@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { locations } from "@/lib/locations";
-import { getWhatsAppNumber } from "@/lib/settings";
 import ProductGrid from "@/components/ProductGrid";
 import ProductTicker from "@/components/ProductTicker";
 import HeroSection from "@/components/HeroSection";
@@ -22,8 +21,8 @@ const FEATURES = [
   { icon: "✅", title: "Trusted by 1000+", desc: "Hundreds of repeat customers across Bangalore trust us for reliable vape delivery." },
 ];
 
-export default async function HomePage() {
-  const WHATSAPP_NUMBER = await getWhatsAppNumber();
+export default function HomePage() {
+  const WHATSAPP_NUMBER = "916282878843";
   return (
     <>
       {/* HERO */}
