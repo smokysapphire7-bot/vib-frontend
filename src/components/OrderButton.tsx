@@ -1,5 +1,5 @@
 'use client'
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 interface Props {
   productName: string
@@ -10,19 +10,7 @@ interface Props {
 }
 
 export default function OrderButton({ productName, basePrice, flavour, whatsappNumber, allFlavours }: Props) {
-  const [price, setPrice] = useState(basePrice)
-
-  useEffect(() => {
-    fetch("/api/product-overrides")
-      .then(r => r.json())
-      .then(d => {
-        const override = (d.overrides || []).find((o: any) => o.product_name === productName)
-        if (override?.price) {
-          setPrice("₹" + override.price.toLocaleString("en-IN"))
-        }
-      })
-      .catch(() => {})
-  }, [productName, basePrice])
+  const price = basePrice
 
   const buildMsg = (f: string) => encodeURIComponent(
     `Hi VapeInBangalore, I want to order:\n\n*${productName}*\nFlavour: ${f}\nPrice: ${price}\n\nPlease confirm availability and delivery to my location.`
