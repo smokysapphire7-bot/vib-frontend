@@ -13,7 +13,7 @@ export default function OrderButton({ productName, basePrice, whatsappNumber }: 
   const waUrl = `https://wa.me/${whatsappNumber}?text=${msg}`;
 
   return (
-    
+    <a
       href={waUrl}
       target="_blank"
       rel="noopener noreferrer"
