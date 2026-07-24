@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     url: "https://vapeinbangalore.in",
     siteName: "VapeInBangalore",
     title: "VapeInBangalore — Buy Vape Online, 30 Min Delivery",
-    description: "Fast, discreet vape delivery across all of Bangalore. 30-45 min. 20+ areas covered. Order on WhatsApp.",
+    description: "Fast, discreet vape delivery across all of Bangalore. 30-45 min. 50+ areas covered. Order on WhatsApp.",
     images: [{ url: "/hero-delivery.png", width: 1200, height: 630, alt: "VapeInBangalore — Fast Delivery" }],
   },
   twitter: {
