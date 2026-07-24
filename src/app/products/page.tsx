@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { products } from "@/lib/products";
@@ -13,8 +13,24 @@ export default function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState("All");
   const [activeBrand, setActiveBrand] = useState("All");
   const [activeSub, setActiveSub] = useState("All");
+  const [overrides, setOverrides] = useState<Record<string, boolean>>({});
+
+  useEffect(() => {
+    fetch("/api/product-overrides")
+      .then(r => r.json())
+      .then(data => {
+        const map: Record<string, boolean> = {};
+        (data.overrides || []).forEach((o: any) => {
+          map[o.product_name] = o.in_stock !== false;
+        });
+        setOverrides(map);
+      })
+      .catch(() => {});
+  }, []);
 
   const filtered = products.filter(p => {
+    const inStock = overrides[p.name] !== undefined ? overrides[p.name] : p.inStock;
+    if (!inStock) return false;
     const catMatch = activeCategory === "All" || p.category === activeCategory;
     const brandMatch = activeBrand === "All" || p.brand === activeBrand;
     const subMatch = activeSub === "All" || p.subCategory === activeSub;
@@ -23,7 +39,7 @@ export default function ProductsPage() {
 
   const filterBtn = (active: boolean) => ({
     padding: "6px 14px", borderRadius: 20,
-    background: active ? "var(--orange)" : "var(--bg-3)",
+    background: active ? "var(--green)" : "var(--bg-3)",
     border: active ? "none" : "1px solid var(--border)",
     color: active ? "var(--btn-text)" : "var(--muted)",
     cursor: "pointer", fontSize: "0.78rem",
@@ -36,14 +52,14 @@ export default function ProductsPage() {
 
       {/* Header */}
       <div style={{ padding: "28px 20px 0", maxWidth: 1000, margin: "0 auto" }}>
-        <p style={{ fontSize: "0.75rem", color: "var(--orange)", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "var(--font-display)", marginBottom: 8 }}>
+        <p style={{ fontSize: "0.75rem", color: "var(--green)", fontWeight: 700, letterSpacing: "0.12em", textTransform: "uppercase", fontFamily: "var(--font-display)", marginBottom: 8 }}>
           All Products
         </p>
         <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(1.6rem, 4vw, 2.2rem)", fontWeight: 900, marginBottom: 6 }}>
           Buy Vapes & Tobacco in Bangalore
         </h1>
         <p style={{ color: "var(--muted)", fontSize: "0.88rem", marginBottom: 24 }}>
-          {products.length} products · Fast delivery across 20+ Bangalore areas
+          {filtered.length} products · Fast delivery across 20+ Bangalore areas
         </p>
 
         {/* Category filter */}
@@ -76,7 +92,7 @@ export default function ProductsPage() {
                 <div style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 14, overflow: "hidden", height: "100%" }}>
                   <div style={{ position: "relative", height: 160, background: "var(--bg-3)" }}>
                     <Image src={product.image} alt={product.name} fill style={{ objectFit: "contain", padding: 8 }} sizes="200px" />
-                    <div style={{ position: "absolute", top: 8, left: 8, background: "var(--orange)", color: "var(--btn-text)", borderRadius: 20, padding: "2px 8px", fontSize: "0.65rem", fontWeight: 700, fontFamily: "var(--font-display)" }}>
+                    <div style={{ position: "absolute", top: 8, left: 8, background: "var(--green)", color: "var(--btn-text)", borderRadius: 20, padding: "2px 8px", fontSize: "0.65rem", fontWeight: 700, fontFamily: "var(--font-display)" }}>
                       {product.discount}
                     </div>
                   </div>
@@ -87,7 +103,7 @@ export default function ProductsPage() {
                     <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", marginBottom: 4, lineHeight: 1.2 }}>{product.name}</p>
                     <p style={{ fontSize: "0.72rem", color: "var(--muted)", marginBottom: 6 }}>{product.puffs}</p>
                     <div style={{ display: "flex", alignItems: "baseline", gap: 6 }}>
-                      <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.95rem", color: "var(--orange)" }}>{product.price}</span>
+                      <span style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "0.95rem", color: "var(--green)" }}>{product.price}</span>
                       <span style={{ fontSize: "0.72rem", color: "var(--muted)", textDecoration: "line-through" }}>{product.originalPrice}</span>
                     </div>
                   </div>
