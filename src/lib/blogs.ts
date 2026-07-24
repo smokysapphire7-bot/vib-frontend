@@ -891,7 +891,7 @@ ${CTA()}`,
 
   // ─── ELFBAR D3 PRO RAISING ISSUES ────────────────────────────────────────
   {
-    slug: "elfbar-d3-pro-issues-what-to-know-before-buying",
+    slug: "elfbar-d3-pro-common-issues-bangalore-guide",
     publishedAt: "2025-04-29",
     title: "Elfbar D3 Pro — Known Issues & What to Check Before You Buy",
     metaTitle: "Elfbar D3 Pro Issues in Bangalore | What to Know Before Buying | VapeInBangalore",
