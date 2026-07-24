@@ -521,12 +521,12 @@ export default function ProductGrid() {
       {/* ── TOAST ── */}
       {toast && (
         <div onClick={() => { setToast(null); setIsOpen(true); }}
-          style={{ position: "fixed", bottom: itemCount > 0 ? 90 : 24, left: "50%", transform: "translateX(-50%)", background: "var(--bg-2)", border: "1px solid var(--green)", borderRadius: 12, padding: "12px 18px", display: "flex", alignItems: "center", gap: 12, zIndex: 998, cursor: "pointer", boxShadow: "0 4px 24px rgba(22,163,74,0.2)", whiteSpace: "nowrap", animation: "slideUp 0.25s ease" }}>
+          style={{ position: "fixed", bottom: itemCount > 0 ? 90 : 24, left: "50%", transform: "translateX(-50%)", background: "var(--bg-2)", border: "1px solid var(--orange)", borderRadius: 12, padding: "12px 18px", display: "flex", alignItems: "center", gap: 12, zIndex: 998, cursor: "pointer", boxShadow: "0 4px 24px rgba(248,193,5,0.2)", whiteSpace: "nowrap", animation: "slideUp 0.25s ease" }}>
           <div>
             <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.88rem", color: "var(--white)" }}>Added to cart!</p>
             <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{toast.name} · {toast.flavour}</p>
           </div>
-          <div style={{ background: "var(--green)", color: "var(--btn-text)", borderRadius: 8, padding: "8px 14px", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem" }}>
+          <div style={{ background: "var(--orange)", color: "var(--btn-text)", borderRadius: 8, padding: "8px 14px", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem" }}>
             View Cart →
           </div>
         </div>
@@ -547,7 +547,7 @@ export default function ProductGrid() {
             <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>{itemCount} item{itemCount !== 1 ? "s" : ""} in cart</p>
           </div>
           <button onClick={() => setIsOpen(true)}
-            style={{ padding: "12px 24px", background: "var(--green)", border: "none", borderRadius: 10, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.95rem", cursor: "pointer", WebkitTapHighlightColor: "transparent", flexShrink: 0 }}>
+            style={{ padding: "12px 24px", background: "var(--orange)", border: "none", borderRadius: 10, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.95rem", cursor: "pointer", WebkitTapHighlightColor: "transparent", flexShrink: 0 }}>
             Proceed to Checkout →
           </button>
         </div>
