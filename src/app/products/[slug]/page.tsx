@@ -2,11 +2,11 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import LivePrice from "@/components/LivePrice";
-import OrderButton from "@/components/OrderButton";
 import { products, getRelatedProducts } from "@/lib/products";
 
 interface Props { params: { slug: string } }
+
+const WHATSAPP = "916282878843";
 
 export async function generateStaticParams() {
   return products.map(p => ({ slug: p.slug }));
@@ -21,20 +21,18 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     alternates: { canonical: `https://vapeinbangalore.in/products/${product.slug}` },
     keywords: [
       "vape in bangalore", "vapes in bangalore", "vape delivery bangalore",
-      "buy vape bangalore", "vape near me bangalore", product.name,
-      product.brand, `${product.brand} bangalore`, "disposable vape bangalore",
-      "vape shop bangalore", "order vape bangalore", "fast vape delivery bangalore"
+      "buy vape bangalore", product.name, product.brand,
+      `${product.brand} bangalore`, "disposable vape bangalore",
     ],
     openGraph: {
       title: product.metaTitle,
       description: product.metaDescription,
       images: [{ url: `https://vapeinbangalore.in${product.image}` }],
       type: "website",
-      siteName: "VapeInBangalore",
+      siteName: "VapeInBangalore.in",
     },
   };
 }
-
 
 const AREAS = [
   "BTM Layout", "HSR Layout", "Koramangala", "Indiranagar", "Whitefield",
@@ -42,370 +40,126 @@ const AREAS = [
   "Yelahanka", "Rajajinagar", "Malleshwaram", "Banashankari", "Bellandur",
 ];
 
-function buildOrderMessage(productName: string, price: string, flavour: string) {
-  return encodeURIComponent(
-    `Hi VapeInBangalore, I want to order:\n\n*${productName}*\nFlavour: ${flavour}\nPrice: ${price}\n\nPlease confirm availability and delivery to my location.`
-  );
-}
-
 export default function ProductPage({ params }: Props) {
-  const WHATSAPP_NUMBER = "916282878843";
   const product = products.find(p => p.slug === params.slug);
   if (!product) notFound();
 
   const related = getRelatedProducts(product.slug, 4);
-
-  const categoryColor: Record<string, string> = {
-    "Vape": "#f8c105",
-    "E-Liquid": "#10b981",
-    "Nicotine Pouches": "#3b82f6",
-    "Tobacco": "#a16207",
-    "Pod Device": "#a78bfa",
-  };
-  const catColor = categoryColor[product.category] || "#f8c105";
+  const waMsg = encodeURIComponent(
+    `Hi VapeInBangalore, I want to order *${product.name}* (${product.price}). Please confirm availability and delivery time.`
+  );
+  const waUrl = `https://wa.me/${WHATSAPP}?text=${waMsg}`;
 
   return (
     <main style={{ minHeight: "100vh", background: "var(--bg)", paddingBottom: 80 }}>
-
-      {/* JSON-LD Product Schema */}
+      {/* Schema */}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
         "@context": "https://schema.org",
         "@type": "Product",
         "name": product.name,
-        "description": product.metaDescription,
         "image": `https://vapeinbangalore.in${product.image}`,
+        "description": product.metaDescription,
         "brand": { "@type": "Brand", "name": product.brand },
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.7",
-          "reviewCount": "89",
-          "bestRating": "5",
-          "worstRating": "1"
-        },
-        "review": {
-          "@type": "Review",
-          "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-          "author": { "@type": "Person", "name": "Rahul K." },
-          "reviewBody": `Ordered ${product.name} in Bangalore and it arrived in 35 minutes. Authentic product, great flavour. Will order again!`
-        },
         "offers": {
           "@type": "Offer",
-          "price": product.price.replace(/[₹,]/g, ""),
           "priceCurrency": "INR",
-          "availability": product.inStock ? "https://schema.org/InStock" : "https://schema.org/OutOfStock",
-          "seller": { "@type": "Organization", "name": "VapeInBangalore" },
-          "url": `https://vapeinbangalore.in/products/${product.slug}`,
-          "areaServed": "Bangalore",
-          "deliveryLeadTime": { "@type": "QuantitativeValue", "value": 0.5, "unitCode": "HUR" },
-          "shippingDetails": {
-            "@type": "OfferShippingDetails",
-            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "INR" },
-            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "IN" },
-            "deliveryTime": {
-              "@type": "ShippingDeliveryTime",
-              "handlingTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "HUR" },
-              "transitTime": { "@type": "QuantitativeValue", "minValue": 0, "maxValue": 1, "unitCode": "HUR" }
-            }
-          },
-          "hasMerchantReturnPolicy": {
-            "@type": "MerchantReturnPolicy",
-            "applicableCountry": "IN",
-            "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-            "merchantReturnDays": 2,
-            "returnMethod": "https://schema.org/ReturnByMail",
-            "returnFees": "https://schema.org/FreeReturn"
-          },
+          "price": product.price.replace(/[₹,]/g, ""),
+          "availability": "https://schema.org/InStock",
+          "seller": { "@type": "Organization", "name": "VapeInBangalore.in" }
         },
+        "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "180" }
       })}} />
 
-      {/* Breadcrumb */}
-      <div style={{ padding: "14px 20px 0", maxWidth: 680, margin: "0 auto" }}>
-        <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>
-          <Link href="/" style={{ color: "var(--muted)", textDecoration: "none" }}>Home</Link>
-          {" · "}
-          <Link href="/#products" style={{ color: "var(--muted)", textDecoration: "none" }}>Products</Link>
-          {" · "}
-          <span style={{ color: "var(--white)" }}>{product.name}</span>
-        </p>
+      {/* Header */}
+      <div style={{ background: "var(--bg-2)", borderBottom: "1px solid var(--border)", padding: "16px" }}>
+        <div style={{ maxWidth: 700, margin: "0 auto" }}>
+          <Link href="/products" style={{ color: "var(--green)", fontSize: "0.78rem", fontWeight: 600, textDecoration: "none" }}>← All Products</Link>
+        </div>
       </div>
 
-      <div style={{ maxWidth: 680, margin: "0 auto", padding: "16px 20px" }}>
-
-        {/* ── PRODUCT IMAGE — full width, mobile-first ── */}
-        <div style={{
-          position: "relative", width: "100%", aspectRatio: "1/1",
-          borderRadius: 16, overflow: "hidden",
-          background: "var(--bg-2)", border: "1px solid var(--border)",
-          marginBottom: 20,
-        }}>
-          <Image
-            src={product.image}
-            alt={`${product.name} — Buy in Bangalore | VapeInBangalore`}
-            fill
-            style={{ objectFit: "contain", padding: 20 }}
-            sizes="(max-width: 680px) 100vw, 680px"
-            priority
-          />
-          <div style={{
-            position: "absolute", top: 12, left: 12,
-            background: "var(--orange)", color: "var(--btn-text)",
-            borderRadius: 20, padding: "4px 12px",
-            fontSize: "0.78rem", fontWeight: 700, fontFamily: "var(--font-display)",
-          }}>
-            {product.discount}
+      <div style={{ maxWidth: 700, margin: "0 auto", padding: "24px 16px" }}>
+        {/* Product card */}
+        <div style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 16, overflow: "hidden", marginBottom: 24 }}>
+          <div style={{ position: "relative", aspectRatio: "1", background: "var(--bg-3)", maxHeight: 300 }}>
+            {product.badge && (
+              <span style={{ position: "absolute", top: 12, left: 12, background: "var(--green)", color: "#fff", fontSize: "0.7rem", fontWeight: 700, padding: "4px 10px", borderRadius: 100, zIndex: 1 }}>{product.badge}</span>
+            )}
+            <Image src={product.image} alt={product.name} fill style={{ objectFit: "contain", padding: 20 }} />
           </div>
-        </div>
+          <div style={{ padding: "20px" }}>
+            <div style={{ fontSize: "0.72rem", fontWeight: 700, color: "var(--muted)", textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: 6 }}>{product.brand}</div>
+            <h1 style={{ fontSize: "1.4rem", fontWeight: 800, color: "var(--white)", marginBottom: 8 }}>{product.name}</h1>
+            <div style={{ fontSize: "1.8rem", fontWeight: 900, color: "var(--green)", marginBottom: 16 }}>{product.price}</div>
 
-        {/* ── BADGES ── */}
-        <div style={{ display: "flex", gap: 6, flexWrap: "wrap", marginBottom: 12 }}>
-          {[product.category, product.brand, product.subCategory].map(tag => (
-            <span key={tag} style={{
-              background: catColor + "20", color: catColor,
-              border: `1px solid ${catColor}44`,
-              borderRadius: 20, padding: "3px 10px",
-              fontSize: "0.72rem", fontWeight: 700,
-              fontFamily: "var(--font-display)",
-            }}>
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        {/* ── NAME & DESC ── */}
-        <h1 style={{
-          fontFamily: "var(--font-display)", fontSize: "1.6rem",
-          fontWeight: 900, marginBottom: 6, lineHeight: 1.2, color: "var(--white)",
-        }}>
-          {product.name}
-        </h1>
-        <p style={{ fontSize: "0.88rem", color: "var(--muted)", marginBottom: 16, lineHeight: 1.5 }}>
-          {product.description}
-        </p>
-
-        {/* ── PRICE ── */}
-        <div style={{ display: "flex", alignItems: "baseline", gap: 10, marginBottom: 20 }}>
-          <span style={{ fontFamily: "var(--font-display)", fontSize: "2rem", fontWeight: 900, color: "var(--orange)" }}>
-            <LivePrice productName={product.name} basePrice={product.price} />
-          </span>
-          <span style={{ fontSize: "1rem", color: "var(--muted)", textDecoration: "line-through" }}>
-            {product.originalPrice}
-          </span>
-          <span style={{
-            background: "var(--orange)22", color: "var(--orange)",
-            border: "1px solid var(--orange)44", borderRadius: 20,
-            padding: "3px 10px", fontSize: "0.75rem", fontWeight: 700,
-          }}>
-            {product.discount}
-          </span>
-        </div>
-
-        {/* ── PUFFS + NICOTINE ── */}
-        <div style={{
-          background: "var(--bg-2)", border: "1px solid var(--border)",
-          borderRadius: 12, padding: "14px 16px", marginBottom: 16,
-          display: "flex", justifyContent: "space-between", alignItems: "center",
-        }}>
-          <div>
-            <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1.2rem", color: "var(--white)" }}>
-              {product.puffs}
-            </p>
-            <p style={{ fontSize: "0.75rem", color: "var(--muted)", marginTop: 2 }}>{product.nicotine}</p>
-          </div>
-          <div style={{ textAlign: "right" }}>
-            <p style={{ fontSize: "0.75rem", color: "var(--muted)" }}>Delivery</p>
-            <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.88rem", color: "#10b981" }}>
-              30-45 Min
-            </p>
-          </div>
-        </div>
-
-        {/* ── FEATURES ── */}
-        <div style={{ display: "flex", flexWrap: "wrap", gap: 8, marginBottom: 20 }}>
-          {product.features.map(f => (
-            <span key={f} style={{
-              background: "var(--bg-3)", border: "1px solid var(--border)",
-              borderRadius: 8, padding: "6px 12px",
-              fontSize: "0.78rem", color: "var(--text)",
-              fontFamily: "var(--font-display)", fontWeight: 600,
-            }}>
-              {f}
-            </span>
-          ))}
-        </div>
-
-                {/* ── ORDER BUTTONS ── */}
-        <OrderButton
-          productName={product.name}
-          basePrice={product.price}
-          flavour={product.flavours[0]}
-          whatsappNumber={WHATSAPP_NUMBER}
-          allFlavours={product.flavours}
-        />
-
-        {/* ── FLAVOURS ── */}
-        {product.flavours.length > 1 && (
-          <div style={{
-            background: "var(--bg-2)", border: "1px solid var(--border)",
-            borderRadius: 14, padding: "18px", marginBottom: 20,
-          }}>
-            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", marginBottom: 4 }}>
-              Available Flavours
-            </h2>
-            <p style={{ fontSize: "0.75rem", color: "var(--muted)", marginBottom: 12 }}>
-              Tap any flavour to order it directly on WhatsApp
-            </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
-              {product.flavours.map(f => (
-                <a
-                  key={f}
-                  href={`https://wa.me/${WHATSAPP_NUMBER}?text=${buildOrderMessage(product.name, product.price, f)}`}
-                  target="_blank" rel="noopener noreferrer"
-                  style={{
-                    background: "var(--bg-3)", border: "1px solid var(--border)",
-                    borderRadius: 20, padding: "7px 14px",
-                    fontSize: "0.82rem", color: "var(--text)",
-                    fontFamily: "var(--font-display)", fontWeight: 600,
-                    textDecoration: "none",
-                  }}
-                >
-                  {f}
-                </a>
+            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8, marginBottom: 16 }}>
+              {[
+                { label: "Puffs", value: product.puffs },
+                { label: "Nicotine", value: product.nicotine },
+                { label: "Brand", value: product.brand },
+                { label: "Category", value: product.category },
+              ].filter(i => i.value).map(item => (
+                <div key={item.label} style={{ background: "var(--bg-3)", borderRadius: 8, padding: "8px 12px" }}>
+                  <div style={{ fontSize: "0.68rem", color: "var(--muted)", fontWeight: 600, marginBottom: 2 }}>{item.label}</div>
+                  <div style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--white)" }}>{item.value}</div>
+                </div>
               ))}
             </div>
-          </div>
-        )}
 
-        {/* ── ABOUT ── */}
-        <div style={{
-          background: "var(--bg-2)", border: "1px solid var(--border)",
-          borderRadius: 14, padding: "18px", marginBottom: 20,
-        }}>
-          <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", marginBottom: 10 }}>
-            About {product.name}
-          </h2>
-          <p style={{ color: "var(--text)", fontSize: "0.9rem", lineHeight: 1.75, marginBottom: 12 }}>
-            {product.longDescription}
-          </p>
-          <p style={{ color: "var(--muted)", fontSize: "0.82rem", lineHeight: 1.6 }}>
-            Order {product.name} in Bangalore for fast 30-45 minute delivery. We deliver vapes across
-            BTM Layout, HSR Layout, Koramangala, Indiranagar, Whitefield, Marathahalli, Electronic City
-            and 20+ areas. All products are 100% authentic with discreet packaging.
-          </p>
+            <a href={waUrl} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: "#25D366", color: "#fff", padding: "14px", borderRadius: 12, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", marginBottom: 10 }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.554 4.122 1.523 5.855L0 24l6.29-1.49A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.374l-.36-.214-3.733.884.937-3.638-.234-.374A9.818 9.818 0 0112 2.182c5.424 0 9.818 4.394 9.818 9.818 0 5.425-4.394 9.818-9.818 9.818z"/></svg>
+              Order {product.name} on WhatsApp
+            </a>
+
+            <div style={{ fontSize: "0.78rem", color: "var(--muted)", textAlign: "center" as const, lineHeight: 1.6 }}>
+              No COD — Payment confirmed on WhatsApp before dispatch<br/>
+              Dispatch in 10-15 mins · Delivery charge paid to rider
+            </div>
+          </div>
         </div>
 
-        {/* ── DELIVERY AREAS ── */}
-        <div style={{
-          background: "var(--bg-2)", border: "1px solid var(--border)",
-          borderRadius: 14, padding: "18px", marginBottom: 20,
-        }}>
-          <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", marginBottom: 4 }}>
+        {/* Description */}
+        <div style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px", marginBottom: 24 }}>
+          <h2 style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--white)", marginBottom: 12 }}>About {product.name}</h2>
+          <p style={{ fontSize: "0.85rem", color: "var(--muted)", lineHeight: 1.8 }}>{product.longDescription}</p>
+        </div>
+
+        {/* Delivery areas */}
+        <div style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px", marginBottom: 24 }}>
+          <h2 style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--white)", marginBottom: 12 }}>
             {product.name} Delivery Areas in Bangalore
           </h2>
-          <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginBottom: 12 }}>
-            We deliver {product.name} across all major areas in Bangalore in 30-45 minutes.
-          </p>
-          <div style={{ display: "flex", flexWrap: "wrap", gap: 6 }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
             {AREAS.map(area => (
-              <Link
-                key={area}
-                href={`/vape-delivery/${area.toLowerCase().replace(/\s+/g, "-")}`}
-                style={{
-                  background: "var(--bg-3)", border: "1px solid var(--border)",
-                  borderRadius: 20, padding: "5px 12px",
-                  fontSize: "0.75rem", color: "var(--muted)",
-                  fontFamily: "var(--font-display)", fontWeight: 600,
-                  textDecoration: "none",
-                }}
-              >
+              <Link key={area} href={`/vape-delivery/${area.toLowerCase().replace(/ /g, "-")}`} style={{ background: "var(--bg-3)", border: "1px solid var(--border)", padding: "5px 10px", borderRadius: 100, fontSize: "0.72rem", color: "var(--muted)", textDecoration: "none" }}>
                 {area}
               </Link>
             ))}
           </div>
         </div>
 
-        {/* ── INTERNAL LINKS ── */}
-        <div style={{
-          background: "var(--bg-2)", border: "1px solid var(--border)",
-          borderRadius: 14, padding: "18px", marginBottom: 20,
-        }}>
-          <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", marginBottom: 12 }}>
-            Shop More at VapeInBangalore
-          </h2>
-          <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
-            {[
-              { label: "🛍 All Products — Vapes, Pods & Tobacco", href: "/#products" },
-              { label: "⚡ Disposable Vapes in Bangalore", href: "/#products" },
-              { label: "🔄 Reusable Pod Devices", href: "/#products" },
-              { label: "📦 Order on WhatsApp — 30-45 Min Delivery", href: `https://wa.me/${WHATSAPP_NUMBER}?text=Hi VapeInBangalore, I want to order a vape in Bangalore.` },
-              { label: "📝 Vape Delivery Blog & Guides", href: "/blog" },
-            ].map(link => (
-              <Link
-                key={link.label}
-                href={link.href}
-                target={link.href.startsWith("http") ? "_blank" : undefined}
-                rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                style={{
-                  display: "flex", alignItems: "center", gap: 8,
-                  padding: "10px 12px", borderRadius: 8,
-                  background: "var(--bg-3)", border: "1px solid var(--border)",
-                  color: "var(--text)", textDecoration: "none",
-                  fontFamily: "var(--font-display)", fontWeight: 600, fontSize: "0.82rem",
-                  transition: "border-color 0.2s",
-                }}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        {/* ── SEO TEXT ── */}
-        <div style={{
-          background: "var(--bg-2)", border: "1px solid var(--border)",
-          borderRadius: 14, padding: "18px", marginBottom: 24,
-        }}>
-          <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", marginBottom: 10 }}>
-            Buy {product.name} Online in Bangalore
-          </h2>
-          <p style={{ color: "var(--muted)", fontSize: "0.82rem", lineHeight: 1.7 }}>
-            Looking to buy {product.name} in Bangalore? VapeInBangalore offers the fastest vape delivery
-            in Bangalore — 30 to 45 minutes to your door. We stock authentic {product.brand} products
-            at the best prices. Whether you're in South Bangalore, North Bangalore, East or West —
-            we cover all areas. Order vape online in Bangalore through WhatsApp for a seamless,
-            discreet delivery experience. No minimum order. Cash on delivery available.
-          </p>
-        </div>
-
-        {/* ── RELATED PRODUCTS ── */}
+        {/* Related products */}
         {related.length > 0 && (
-          <div>
-            <h2 style={{ fontFamily: "var(--font-display)", fontWeight: 800, fontSize: "1rem", marginBottom: 14 }}>
-              You May Also Like
-            </h2>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 12 }}>
+          <div style={{ marginBottom: 24 }}>
+            <h2 style={{ fontSize: "0.95rem", fontWeight: 700, color: "var(--white)", marginBottom: 14 }}>You may also like</h2>
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: 10 }}>
               {related.map(p => (
-                <Link key={p.slug} href={`/products/${p.slug}`} style={{ textDecoration: "none", color: "inherit" }}>
-                  <div style={{
-                    background: "var(--bg-2)", border: "1px solid var(--border)",
-                    borderRadius: 12, overflow: "hidden",
-                  }}>
-                    <div style={{ position: "relative", height: 140, background: "var(--bg-3)" }}>
-                      <Image src={p.image} alt={`${p.name} — Buy in Bangalore`} fill style={{ objectFit: "contain", padding: 8 }} sizes="200px" />
-                    </div>
-                    <div style={{ padding: "10px 12px" }}>
-                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", marginBottom: 4, lineHeight: 1.2 }}>
-                        {p.name}
-                      </p>
-                      <p style={{ fontFamily: "var(--font-display)", fontWeight: 800, color: "var(--orange)", fontSize: "0.9rem" }}>
-                        {p.price}
-                      </p>
-                    </div>
+                <Link key={p.slug} href={`/products/${p.slug}`} style={{ textDecoration: "none", background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 12, overflow: "hidden", display: "flex", flexDirection: "column" as const }}>
+                  <div style={{ position: "relative", aspectRatio: "1", background: "var(--bg-3)" }}>
+                    <Image src={p.image} alt={p.name} fill style={{ objectFit: "contain", padding: 8 }} />
+                  </div>
+                  <div style={{ padding: "10px 12px" }}>
+                    <div style={{ fontSize: "0.75rem", fontWeight: 700, color: "var(--white)", marginBottom: 4, lineHeight: 1.3 }}>{p.name}</div>
+                    <div style={{ fontSize: "0.88rem", fontWeight: 800, color: "var(--green)" }}>{p.price}</div>
                   </div>
                 </Link>
               ))}
             </div>
           </div>
         )}
+
+        <a href={waUrl} target="_blank" rel="noopener noreferrer" style={{ display: "block", background: "#25D366", color: "#fff", textAlign: "center" as const, padding: "14px", borderRadius: 12, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none" }}>
+          Order {product.name} on WhatsApp — 30-45 Min Delivery
+        </a>
       </div>
     </main>
   );
