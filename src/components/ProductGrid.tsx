@@ -395,14 +395,14 @@ export default function ProductGrid() {
                     {isOutOfStock ? (
                       <button
                         onClick={() => { setNotifyProduct(product.name); setNotifyPhone(""); setNotifyDone(false); }}
-                        style={{ width: "100%", padding: "10px", background: "var(--green)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.8rem", cursor: "pointer", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
+                        style={{ width: "100%", padding: "10px", background: "var(--orange)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.8rem", cursor: "pointer", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
                       >
                         🔔 Notify Me
                       </button>
                     ) : (
                       <button
                         onClick={() => handleAddToCart(product)}
-                        style={{ width: "100%", padding: "10px", background: justAdded ? "#10b981" : "var(--green)", border: "none", borderRadius: 8, color: justAdded ? "#fff" : "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer", transition: "background 0.2s", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
+                        style={{ width: "100%", padding: "10px", background: justAdded ? "#10b981" : "var(--orange)", border: "none", borderRadius: 8, color: "var(--btn-text)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.82rem", cursor: "pointer", transition: "background 0.2s", WebkitTapHighlightColor: "transparent", touchAction: "manipulation" }}
                       >
                         {justAdded ? "✓ Added!" : selectedFlavour ? "+ Add to Cart" : "Select Flavour"}
                       </button>
