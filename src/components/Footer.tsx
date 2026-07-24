@@ -112,7 +112,7 @@ export default function Footer() {
         {/* Bottom */}
         <div style={{ borderTop: "1px solid var(--border)", paddingTop: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
           <p style={{ fontSize: "0.72rem", color: "var(--muted)" }}>
-            © 2025 VapeInBangalore. Fast vape delivery in Bangalore.
+            © 2026 VapeInBangalore.in. Fast vape delivery in Bangalore.
           </p>
           <p style={{ fontSize: "0.72rem", color: "var(--muted)" }}>
             30-45 min delivery · 20+ areas · WhatsApp orders

@@ -64,14 +64,7 @@ export default function ProductGrid() {
   const productRefs = useRef<Record<string, HTMLDivElement | null>>({});
 
   // Fetch overrides
-  useEffect(() => { setMounted(true); }, []);
-
-  useEffect(() => {
-    fetch("/api/product-overrides")
-      .then(r => r.json())
-      .then(d => setOverrides(d.overrides || []))
-      .catch(() => {});
-  }, []);
+  // Product overrides disabled
 
   // WhatsApp float — hidden initially, appears with label after 15s
   useEffect(() => {
@@ -106,17 +99,14 @@ export default function ProductGrid() {
   const handleAddToCart = (product: typeof products[0]) => {
     const override = getOverride(product.name);
     if (override && !override.in_stock) return;
-    const flavour = selectedFlavours[product.name];
-    if (!flavour) { setFlavourSheet(product.name); return; }
+    const flavour = "";
     const basePrice = parseInt(product.price.replace(/[₹,]/g, ""));
     const finalPrice = override?.price || basePrice;
     addToCart({
       product_id: product.name.toLowerCase().replace(/\s+/g, "-"),
       name: product.name,
-      price: finalPrice,
+      price: basePrice,
       image: product.image,
-      puffs: product.puffs,
-      flavour,
     });
     const key = `${product.name}__${flavour}`;
     setAddedMap(prev => ({ ...prev, [key]: true }));
@@ -141,12 +131,7 @@ export default function ProductGrid() {
     if (!notifyPhone || notifyPhone.length < 10) return;
     setNotifySubmitting(true);
 
-    // Log to MongoDB
-    await fetch("/api/notify-requests", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ product_name: notifyProduct, phone: notifyPhone }),
-    }).catch(() => {});
+    // Notify via WhatsApp only
 
     // Open WhatsApp
     const msg = buildNotifyWAMessage(notifyProduct!, notifyPhone);
@@ -258,13 +243,7 @@ export default function ProductGrid() {
   const [filterFn, setFilterFn] = useState<((name: string) => boolean) | null>(null);
   const [productOrder, setProductOrder] = useState<string[]>([]);
 
-  // Fetch saved product order from MongoDB
-  useEffect(() => {
-    fetch("/api/product-order")
-      .then(r => r.json())
-      .then(d => setProductOrder(d.order || []))
-      .catch(() => {});
-  }, []);
+  // Product order — static
 
   // Sort products: saved order first, stock-out always last
   const sortedProducts = [...products].sort((a, b) => {
