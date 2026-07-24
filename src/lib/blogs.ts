@@ -24,6 +24,7 @@ export const blogPosts: BlogPost[] = [
   // ─── CLUSTER 1: IT / TECH PARK ────────────────────────────────────────────
   {
     slug: "vape-delivery-whitefield-it-corridor",
+    publishedAt: "2025-04-10",
     title: "Vape Delivery in Whitefield & the IT Corridor — Fast, Discreet, Reliable",
     metaTitle: "Vape Delivery in Whitefield IT Corridor | VapeInBangalore.in",
     metaDescription: "Looking for vape delivery near ITPL, Brookefield, or Marathahalli? We deliver across Whitefield's entire IT corridor fast and discreetly.",
@@ -62,6 +63,7 @@ ${CTA()}`,
 
   {
     slug: "vape-delivery-electronic-city-tech-park",
+    publishedAt: "2025-04-11",
     title: "Vape Delivery Near Electronic City — Phase 1, Phase 2 & Tech Park Areas",
     metaTitle: "Vape Delivery Electronic City Bangalore | VapeInBangalore.in",
     metaDescription: "Order vape delivery in Electronic City Phase 1 & 2, Bommasandra, Neeladri Nagar, Huskur. Fast dispatch, discreet packaging.",
@@ -100,6 +102,7 @@ ${CTA()}`,
 
   {
     slug: "vape-delivery-manyata-hebbal-north-bangalore",
+    publishedAt: "2025-04-12",
     title: "Vape Delivery Near Manyata Tech Park, Hebbal & North Bangalore",
     metaTitle: "Vape Delivery Manyata Tech Park Hebbal | VapeInBangalore.in",
     metaDescription: "Order vape delivery near Manyata Tech Park, Hebbal, RT Nagar, Nagawara, Yelahanka. Fast dispatch across north Bangalore.",
@@ -136,6 +139,7 @@ ${CTA()}`,
   // ─── CLUSTER 2: RESIDENTIAL SOUTH BANGALORE ───────────────────────────────
   {
     slug: "vape-delivery-south-bangalore-residential",
+    publishedAt: "2025-04-13",
     title: "Vape Delivery in South Bangalore — BTM, HSR, Jayanagar, JP Nagar & More",
     metaTitle: "Vape Delivery South Bangalore — BTM HSR Jayanagar | VapeInBangalore.in",
     metaDescription: "Order vape delivery across south Bangalore — BTM Layout, HSR Layout, Jayanagar, JP Nagar, Banashankari. Fast discreet delivery to your home.",
@@ -174,6 +178,7 @@ ${CTA()}`,
 
   {
     slug: "vape-delivery-koramangala-indiranagar",
+    publishedAt: "2025-04-14",
     title: "Vape Delivery in Koramangala & Indiranagar — Bangalore's Most Active Neighbourhoods",
     metaTitle: "Vape Delivery Koramangala Indiranagar Bangalore | VapeInBangalore.in",
     metaDescription: "Order vape delivery in Koramangala 1st-8th Block, Indiranagar HAL Stage, Domlur, Defence Colony. Fast discreet delivery.",
@@ -212,6 +217,7 @@ ${CTA()}`,
 
   {
     slug: "vape-delivery-west-north-bangalore-residential",
+    publishedAt: "2025-04-15",
     title: "Vape Delivery in Rajajinagar, Malleshwaram & West Bangalore",
     metaTitle: "Vape Delivery Rajajinagar Malleshwaram West Bangalore | VapeInBangalore.in",
     metaDescription: "Order vape delivery in Rajajinagar, Malleshwaram, KR Puram, Hoodi. Discreet delivery to residential areas in west and east Bangalore.",
@@ -248,6 +254,7 @@ ${CTA()}`,
   // ─── CLUSTER 3: STUDENT AREAS ─────────────────────────────────────────────
   {
     slug: "buy-vape-bangalore-student-areas",
+    publishedAt: "2025-04-16",
     title: "Where to Buy Vape Near College Areas in Bangalore — A Beginner's Guide",
     metaTitle: "Buy Vape Near Colleges Bangalore — Beginner Guide | VapeInBangalore.in",
     metaDescription: "Looking to buy vape near your college or PG in Bangalore? Here's a guide to disposable vapes, what to expect, and how to get delivery in Koramangala, Indiranagar, MG Road and more.",
@@ -289,6 +296,7 @@ ${CTA()}`,
 
   {
     slug: "vape-delivery-mg-road-brigade-road-bangalore",
+    publishedAt: "2025-04-17",
     title: "Vape Delivery Near MG Road & Brigade Road — Central Bangalore",
     metaTitle: "Vape Delivery MG Road Brigade Road Bangalore | VapeInBangalore.in",
     metaDescription: "Order vape delivery near MG Road, Brigade Road, Church Street, Richmond Town, Residency Road, Shanti Nagar. Fast delivery in central Bangalore.",
@@ -325,6 +333,7 @@ ${CTA()}`,
   // ─── CLUSTER 4: INTENT / PRODUCT BLOGS ───────────────────────────────────
   {
     slug: "vapes-in-bangalore",
+    publishedAt: "2025-04-18",
     title: "Vapes in Bangalore — Where to Buy, What to Get, How It Works",
     metaTitle: "Vapes in Bangalore — Buy Online with Fast Delivery | VapeInBangalore.in",
     metaDescription: "Everything you need to know about buying vapes in Bangalore — best products, delivery options, pricing, and which areas get the fastest service.",
@@ -366,6 +375,7 @@ ${CTA()}`,
 
   {
     slug: "vape-delivery-bangalore",
+    publishedAt: "2025-04-19",
     title: "Vape Delivery in Bangalore — How It Works, What to Expect",
     metaTitle: "Vape Delivery Bangalore — Fast Discreet Delivery | VapeInBangalore.in",
     metaDescription: "How does vape delivery work in Bangalore? Order online, get dispatch via Porter or Rapido, track your delivery. We cover 20+ areas across Bangalore.",
@@ -407,6 +417,7 @@ ${CTA()}`,
 
   {
     slug: "best-disposable-vapes-bangalore-2025",
+    publishedAt: "2025-04-20",
     title: "Best Disposable Vapes Available in Bangalore in 2025",
     metaTitle: "Best Disposable Vapes Bangalore 2025 | VapeInBangalore.in",
     metaDescription: "What are the best disposable vapes available in Bangalore right now? Elfbar Raya D3, Ice King, D1 — reviewed and compared with prices and flavour notes.",
@@ -451,6 +462,7 @@ ${CTA()}`,
 
   {
     slug: "vape-near-me-bangalore",
+    publishedAt: "2025-04-21",
     title: "Vape Near Me in Bangalore — Fastest Delivery Across All Areas",
     metaTitle: "Vape Near Me Bangalore — Fast Delivery to Your Location | VapeInBangalore.in",
     metaDescription: "Searching for vape near me in Bangalore? We deliver to your exact location across 20+ areas. Koramangala, Whitefield, BTM, HSR, Electronic City and more.",
@@ -487,6 +499,7 @@ ${CTA()}`,
   // ─── NEW: ELFBAR BANGALORE ────────────────────────────────────────────────
   {
     slug: "elfbar-bangalore-buy-online-delivery",
+    publishedAt: "2025-04-22",
     title: "Buy Elfbar in Bangalore — All Models, Fast Delivery to Your Door",
     metaTitle: "Buy Elfbar in Bangalore | Raya D1, D3, Ice King | VapeInBangalore",
     metaDescription: "Buy Elfbar vapes in Bangalore with 30-45 min delivery. Elfbar Raya D1, D3, D3 Pro, Ice King, BC 10000, MoonNight & more. Order on WhatsApp now.",
@@ -544,6 +557,7 @@ ${CTA()}`,
   // ─── NEW: CALIBURN POD DEVICE BANGALORE ──────────────────────────────────
   {
     slug: "caliburn-pod-device-bangalore",
+    publishedAt: "2025-04-23",
     title: "Caliburn Pod Device in Bangalore — G3, G4, G5 & KOKO Series Guide",
     metaTitle: "Buy Caliburn Pod Device in Bangalore | G4, G5, KOKO | VapeInBangalore",
     metaDescription: "Buy Caliburn pod devices in Bangalore. Caliburn G3, G4, G5 Lite, KOKO series — all models available with 30-45 min delivery. ₹3,899 onwards.",
@@ -593,6 +607,7 @@ ${CTA()}`,
   // ─── NEW: NICOTINE POUCHES BANGALORE ─────────────────────────────────────
   {
     slug: "nicotine-pouches-bangalore-zyn-velo",
+    publishedAt: "2025-04-24",
     title: "Nicotine Pouches in Bangalore — ZYN & Velo Available for Delivery",
     metaTitle: "Buy Nicotine Pouches in Bangalore | ZYN Cool Mint, Velo | VapeInBangalore",
     metaDescription: "Buy ZYN Cool Mint and Velo Freezing Peppermint nicotine pouches in Bangalore. Smoke-free, vapour-free. 30-45 min delivery. ₹999 per tin.",
@@ -639,6 +654,7 @@ ${CTA()}`,
   // ─── D3 PRO RAISING ISSUES WARNING ───────────────────────────────────────
   {
     slug: "elfbar-d3-pro-issues-what-to-know-before-buying",
+    publishedAt: "2025-04-25",
     title: "Elfbar D3 Pro — Raising Issues You Should Know Before Buying in Bangalore",
     metaTitle: "Elfbar D3 Pro Issues Bangalore — Read Before Buying | VapeInBangalore",
     metaDescription: "Elfbar D3 Pro buyers in Bangalore reporting issues with raising/heating problems. What to check, safer alternatives, and how to buy authentic D3 Pro.",
@@ -713,6 +729,7 @@ ${CTA()}`,
   // ─── HOW TO ORDER VAPE IN BANGALORE ──────────────────────────────────────
   {
     slug: "how-to-order-vape-delivery-bangalore-whatsapp",
+    publishedAt: "2025-04-26",
     title: "How to Order Vape Delivery in Bangalore on WhatsApp — Step by Step",
     metaTitle: "How to Order Vape Delivery Bangalore on WhatsApp | VapeInBangalore",
     metaDescription: "Step by step guide to ordering vape delivery in Bangalore on WhatsApp. Fast 30-45 min delivery to BTM, HSR, Koramangala & 20+ areas.",
@@ -762,6 +779,7 @@ ${CTA()}`,
   // ─── BEST VAPE FOR BEGINNERS BANGALORE ───────────────────────────────────
   {
     slug: "best-vape-for-beginners-bangalore-2025",
+    publishedAt: "2025-04-27",
     title: "Best Vape for Beginners in Bangalore 2025 — Complete Starter Guide",
     metaTitle: "Best Vape for Beginners Bangalore 2025 | Starter Guide | VapeInBangalore",
     metaDescription: "New to vaping in Bangalore? Here's the best vapes for beginners — easy to use, affordable, available with 30-45 min delivery.",
@@ -816,6 +834,7 @@ ${CTA()}`,
   // ─── VAPE VS CIGARETTE BANGALORE ─────────────────────────────────────────
   {
     slug: "vaping-vs-smoking-cigarettes-bangalore-switch",
+    publishedAt: "2025-04-28",
     title: "Switching from Cigarettes to Vaping in Bangalore — What to Expect",
     metaTitle: "Vaping vs Smoking Cigarettes Bangalore | Switch Guide | VapeInBangalore",
     metaDescription: "Thinking of switching from cigarettes to vaping in Bangalore? Here's what to expect, which products to start with, and how to make the switch easier.",
@@ -873,6 +892,7 @@ ${CTA()}`,
   // ─── ELFBAR D3 PRO RAISING ISSUES ────────────────────────────────────────
   {
     slug: "elfbar-d3-pro-issues-what-to-know-before-buying",
+    publishedAt: "2025-04-29",
     title: "Elfbar D3 Pro — Known Issues & What to Check Before You Buy",
     metaTitle: "Elfbar D3 Pro Issues in Bangalore | What to Know Before Buying | VapeInBangalore",
     metaDescription: "Elfbar D3 Pro has some known issues reported by users in Bangalore. Read this before buying — coil flooding, auto-firing, and what to do if it happens.",
@@ -940,6 +960,7 @@ ${CTA()}`,
   // ─── ELFBAR TRIO VS RAYA D1 ──────────────────────────────────────────────
   {
     slug: "elfbar-trio-vs-raya-d1-puffs-honest-comparison",
+    publishedAt: "2025-04-30",
     title: "Elfbar Trio 40K vs Raya D1 13K — Why the Trio May Run Out Faster",
     metaTitle: "Elfbar Trio vs Raya D1 Bangalore | Honest Puff Count Comparison | VapeInBangalore",
     metaDescription: "Elfbar Trio says 40,000 puffs but may finish before the Raya D1 at 13,000. Here's the honest truth about vape puff counts in Bangalore.",
@@ -1025,6 +1046,7 @@ ${CTA()}`,
   // ─── HOW TO MAKE YOUR VAPE LAST LONGER ───────────────────────────────────
   {
     slug: "how-to-make-disposable-vape-last-longer-bangalore",
+    publishedAt: "2025-05-01",
     title: "How to Make Your Disposable Vape Last Longer — Tips for Bangalore Vapers",
     metaTitle: "Make Disposable Vape Last Longer | Tips for Bangalore Vapers | VapeInBangalore",
     metaDescription: "Simple tips to get more puffs from your disposable vape in Bangalore. Storage, draw technique, charging habits and more.",
