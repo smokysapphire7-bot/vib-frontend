@@ -32,7 +32,7 @@ export default function CartDrawer() {
         {items.length === 0 ? (
           <div style={{ padding: "40px 20px", textAlign: "center" as const, color: "var(--muted)" }}>
             <p style={{ fontSize: "0.88rem" }}>Your cart is empty</p>
-            <button onClick={() => setIsOpen(false)} style={{ marginTop: 16, background: "var(--green)", color: "#fff", border: "none", borderRadius: 10, padding: "10px 20px", fontWeight: 700, fontSize: "0.9rem", cursor: "pointer" }}>Browse Products</button>
+            <button onClick={() => setIsOpen(false)} style={{ marginTop: 16, background: "var(--orange)", color: "var(--btn-text)", border: "none", borderRadius: 10, padding: "10px 20px", fontWeight: 700, fontSize: "0.9rem", cursor: "pointer" }}>Browse Products</button>
           </div>
         ) : (
           <div style={{ overflowY: "auto", flex: 1, padding: "12px 20px" }}>
@@ -43,7 +43,7 @@ export default function CartDrawer() {
                 </div>
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <div style={{ fontSize: "0.82rem", fontWeight: 700, color: "var(--text)", lineHeight: 1.3 }}>{item.name}</div>
-                  <div style={{ fontSize: "0.88rem", fontWeight: 800, color: "var(--green)", marginTop: 4 }}>Rs.{(item.price * item.qty).toLocaleString()}</div>
+                  <div style={{ fontSize: "0.88rem", fontWeight: 800, color: "var(--orange)", marginTop: 4 }}>Rs.{(item.price * item.qty).toLocaleString()}</div>
                 </div>
                 <div style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
                   <button onClick={() => updateQty(item.product_id, -1)} style={{ width: 28, height: 28, borderRadius: "50%", border: "1px solid var(--border)", background: "var(--bg-3)", cursor: "pointer", color: "var(--text)", fontWeight: 700 }}>-</button>
@@ -59,10 +59,10 @@ export default function CartDrawer() {
             </div>
             <div style={{ background: "var(--bg-3)", borderRadius: 12, padding: "14px 16px", marginBottom: 14, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
               <span style={{ fontSize: "0.88rem", fontWeight: 700, color: "var(--muted)" }}>Total</span>
-              <span style={{ fontSize: "1.1rem", fontWeight: 900, color: "var(--green)" }}>Rs.{total.toLocaleString()}</span>
+              <span style={{ fontSize: "1.1rem", fontWeight: 900, color: "var(--orange)" }}>Rs.{total.toLocaleString()}</span>
             </div>
             <div onClick={() => setAgeVerified(!ageVerified)} style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 12, cursor: "pointer" }}>
-              <div style={{ width: 20, height: 20, borderRadius: 6, border: ageVerified ? "none" : "2px solid var(--border)", background: ageVerified ? "var(--green)" : "var(--bg-3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <div style={{ width: 20, height: 20, borderRadius: 6, border: ageVerified ? "none" : "2px solid var(--border)", background: ageVerified ? "var(--orange)" : "var(--bg-3)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                 {ageVerified && <span style={{ color: "#fff", fontSize: "0.7rem", fontWeight: 800 }}>Y</span>}
               </div>
               <span style={{ fontSize: "0.82rem", color: "var(--muted)", lineHeight: 1.4 }}>
@@ -70,7 +70,7 @@ export default function CartDrawer() {
               </span>
             </div>
             {ageError && <div style={{ fontSize: "0.78rem", color: "#E23744", marginBottom: 8, fontWeight: 600 }}>Please confirm you are 21+ to place an order.</div>}
-            <a href={ageVerified ? waUrl : "#"} onClick={e => { if (!ageVerified) { e.preventDefault(); setAgeError(true); setTimeout(() => setAgeError(false), 2000); } }} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: ageVerified ? "#25D366" : "var(--bg-3)", color: ageVerified ? "#fff" : "var(--muted)", padding: "14px", borderRadius: 12, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", marginBottom: 10, border: ageVerified ? "none" : "1px solid var(--border)" }}>
+            <a href={ageVerified ? waUrl : "#"} onClick={e => { if (!ageVerified) { e.preventDefault(); setAgeError(true); setTimeout(() => setAgeError(false), 2000); } }} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 8, background: ageVerified ? "var(--orange)" : "var(--bg-3)", color: ageVerified ? "var(--btn-text)" : "var(--muted)", padding: "14px", borderRadius: 12, fontWeight: 700, fontSize: "0.95rem", textDecoration: "none", marginBottom: 10, border: ageVerified ? "none" : "1px solid var(--border)" }}>
               Order on WhatsApp
             </a>
             <button onClick={clearCart} style={{ width: "100%", background: "none", border: "1px solid var(--border)", color: "var(--muted)", padding: "10px", borderRadius: 10, fontWeight: 600, fontSize: "0.82rem", cursor: "pointer" }}>Clear Cart</button>

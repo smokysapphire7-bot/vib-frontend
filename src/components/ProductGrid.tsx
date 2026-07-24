@@ -22,20 +22,20 @@ const TAG_COLORS: Record<string, { bg: string; color: string }> = {
   "New Arrival":     { bg: "#3b82f622", color: "#3b82f6" },
   "Stock Out":       { bg: "#ef444422", color: "#ef4444" },
   "Limited Stock":   { bg: "#8b5cf622", color: "#8b5cf6" },
-  "Best Value":      { bg: "#10b98122", color: "#10b981" },
+  "Best Value":      { bg: "var(--orange-dim)22", color: "var(--orange-dim)" },
   "People's Choice": { bg: "#16a34a22", color: "#c49a04" },
   "Low Stock":       { bg: "#ef444422", color: "#ef4444" },
   "POD DEVICE":      { bg: "#06b6d422", color: "#06b6d4" },
   "FLAGSHIP":        { bg: "#16a34a22", color: "#c49a04" },
   "TOP OF LINE":     { bg: "#a855f722", color: "#a855f7" },
-  "LATEST GEN":      { bg: "#10b98122", color: "#10b981" },
+  "LATEST GEN":      { bg: "var(--orange-dim)22", color: "var(--orange-dim)" },
   "LATEST KOKO":     { bg: "#2dd4bf22", color: "#0d9488" },
   "SPECIAL EDITION": { bg: "#f9731622", color: "#f97316" },
   "SMOKE-FREE":      { bg: "#3b82f622", color: "#3b82f6" },
   "TOBACCO":         { bg: "#78350f22", color: "#a16207" },
-  "REFILL LIQUID":   { bg: "#10b98122", color: "#10b981" },
+  "REFILL LIQUID":   { bg: "var(--orange-dim)22", color: "var(--orange-dim)" },
   "MOST POWERFUL":   { bg: "#7c3aed22", color: "#7c3aed" },
-  "GOOD VALUE":      { bg: "#10b98122", color: "#10b981" },
+  "GOOD VALUE":      { bg: "var(--orange-dim)22", color: "var(--orange-dim)" },
   "BEGINNER PICK":   { bg: "#ec489922", color: "#ec4899" },
   "ONLY FEW LEFT":   { bg: "#ef444422", color: "#ef4444" },
 };
@@ -431,7 +431,7 @@ export default function ProductGrid() {
                         <p style={{ fontSize: "0.78rem", color: "var(--muted)", marginBottom: 10 }}>Save ₹1,199 · Mix any 2 flavours · 45-min delivery</p>
                         <div style={{ display: "inline-flex", alignItems: "center", gap: 6, background: "#25d366", borderRadius: 8, padding: "10px 18px" }}>
                           <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.125.554 4.122 1.523 5.855L0 24l6.29-1.49A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.818 9.818 0 01-5.007-1.374l-.36-.214-3.733.884.937-3.638-.234-.374A9.818 9.818 0 0112 2.182c5.424 0 9.818 4.394 9.818 9.818 0 5.425-4.394 9.818-9.818 9.818z"/></svg>
-                          <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", color: "#fff" }}>Order Bundle on WhatsApp →</span>
+                          <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "0.85rem", color: "var(--btn-text)" }}>Order Bundle on WhatsApp →</span>
                         </div>
                       </div>
                     </div>
@@ -489,7 +489,7 @@ export default function ProductGrid() {
 
             {notifyDone ? (
               <div style={{ textAlign: "center", padding: "20px 0" }}>
-                <p style={{ color: "#10b981", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1rem" }}>Done! We'll notify you.</p>
+                <p style={{ color: "var(--orange-dim)", fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1rem" }}>Done! We'll notify you.</p>
               </div>
             ) : (
               <>
