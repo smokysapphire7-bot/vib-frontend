@@ -1,2 +1,4 @@
 node_modules/
 .next/
+domain_audit_report_*.txt
+output.txt
