@@ -3,7 +3,7 @@
 import { useState } from "react";
 
 const FALLBACK = "916282878843";
-const WA_MSG = "?text=Hi%20VapeInBangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore";
+const WA_MSG = "?text=Hi%20Vape Delivery Bangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore";
 
 export default function StickyButtons() {
   const waUrl = `https://wa.me/${FALLBACK}${WA_MSG}`;

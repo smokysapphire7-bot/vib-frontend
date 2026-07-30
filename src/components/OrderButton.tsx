@@ -8,7 +8,7 @@ interface Props {
 
 export default function OrderButton({ productName, basePrice, whatsappNumber }: Props) {
   const msg = encodeURIComponent(
-    `Hi VapeInBangalore, I want to order *${productName}* (${basePrice}). Please confirm availability and delivery time.`
+    `Hi Vape Delivery Bangalore, I want to order *${productName}* (${basePrice}). Please confirm availability and delivery time.`
   );
   const waUrl = `https://wa.me/${whatsappNumber}?text=${msg}`;
 

@@ -11,7 +11,7 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "BLEXBot", disallow: "/" },
       { userAgent: "DataForSeoBot", disallow: "/" },
     ],
-    sitemap: "https://vapeinbangalore.in/sitemap.xml",
-    host: "https://vapeinbangalore.in",
+    sitemap: "https://vapedeliverybangalore.com/sitemap.xml",
+    host: "https://vapedeliverybangalore.com",
   };
 }

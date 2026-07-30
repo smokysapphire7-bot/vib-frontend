@@ -11,7 +11,7 @@ export default function CartDrawer() {
   const [ageError, setAgeError] = useState(false);
 
   const buildMessage = () => {
-    const greeting = name.trim() ? "Hi VapeInBangalore, this is " + name.trim() : "Hi VapeInBangalore";
+    const greeting = name.trim() ? "Hi Vape Delivery Bangalore, this is " + name.trim() : "Hi Vape Delivery Bangalore";
     const lines = items.map(i => "* " + i.name + " x" + i.qty + " - Rs." + (i.price * i.qty).toLocaleString()).join(", ");
     const msg = greeting + ", I want to order: " + lines + ". Total: Rs." + total.toLocaleString() + ". Please confirm availability and delivery time.";
     return encodeURIComponent(msg);

@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: product.metaTitle,
     description: product.metaDescription,
-    alternates: { canonical: `https://vapeinbangalore.in/products/${product.slug}` },
+    alternates: { canonical: `https://vapedeliverybangalore.com/products/${product.slug}` },
     keywords: [
       "vape in bangalore", "vapes in bangalore", "vape delivery bangalore",
       "buy vape bangalore", product.name, product.brand,
@@ -27,9 +27,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: product.metaTitle,
       description: product.metaDescription,
-      images: [{ url: `https://vapeinbangalore.in${product.image}` }],
+      images: [{ url: `https://vapedeliverybangalore.com${product.image}` }],
       type: "website",
-      siteName: "VapeInBangalore.in",
+      siteName: "VapeDeliveryBangalore.com",
     },
   };
 }
@@ -46,7 +46,7 @@ export default function ProductPage({ params }: Props) {
 
   const related = getRelatedProducts(product.slug, 4);
   const waMsg = encodeURIComponent(
-    `Hi VapeInBangalore, I want to order *${product.name}* (${product.price}). Please confirm availability and delivery time.`
+    `Hi Vape Delivery Bangalore, I want to order *${product.name}* (${product.price}). Please confirm availability and delivery time.`
   );
   const waUrl = `https://wa.me/${WHATSAPP}?text=${waMsg}`;
 
@@ -57,7 +57,7 @@ export default function ProductPage({ params }: Props) {
         "@context": "https://schema.org",
         "@type": "Product",
         "name": product.name,
-        "image": `https://vapeinbangalore.in${product.image}`,
+        "image": `https://vapedeliverybangalore.com${product.image}`,
         "description": product.metaDescription,
         "brand": { "@type": "Brand", "name": product.brand },
         "offers": {
@@ -65,7 +65,7 @@ export default function ProductPage({ params }: Props) {
           "priceCurrency": "INR",
           "price": product.price.replace(/[₹,]/g, ""),
           "availability": "https://schema.org/InStock",
-          "seller": { "@type": "Organization", "name": "VapeInBangalore.in" }
+          "seller": { "@type": "Organization", "name": "VapeDeliveryBangalore.com" }
         },
         "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "180" }
       })}} />

@@ -14,9 +14,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const loc = getLocationBySlug(params.slug);
   if (!loc) return {};
   return {
-    title: `Vapes in ${loc.name} Bangalore — Buy Vapes | 30-45 Min Delivery | VapeInBangalore.in`,
+    title: `Vapes in ${loc.name} Bangalore — Buy Vapes | 30-45 Min Delivery | VapeDeliveryBangalore.com`,
     description: `Buy vapes in ${loc.name}, Bangalore in 30-45 minutes. Elfbar Raya D1, MoonNight 40K, Caliburn G4, ZYN Cool Mint & more. 100% original, discreet packaging. Order on WhatsApp.`,
-    alternates: { canonical: `https://vapeinbangalore.in/vape-delivery/${loc.slug}` },
+    alternates: { canonical: `https://vapedeliverybangalore.com/vape-delivery/${loc.slug}` },
     keywords: [
       `vapes in ${loc.name}`,
       `vape delivery ${loc.name}`,
@@ -50,7 +50,7 @@ function getSeoContent(name: string): string {
   return `Vapes in ${name}, Bangalore — delivered in 30-45 minutes. We cover every lane, society and apartment in ${name}. Elfbar disposables from Rs 1,199, Caliburn pod systems, ZYN nicotine pouches at Rs 1,299 and more. 100% original products, discreet packaging, WhatsApp ordering.`;
 }
 
-const WA = "https://wa.me/916282878843?text=Hi%20VapeInBangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore";
+const WA = "https://wa.me/916282878843?text=Hi%20Vape Delivery Bangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore";
 
 const FEATURED = [
   { name: "Elfbar Raya D1", price: "\u20b92,399", badge: "BEST SELLER", img: "/products/raya-d1.webp", slug: "elfbar-raya-d1" },
@@ -110,7 +110,7 @@ export default function LocationPage({ params }: Props) {
         </div>
 
         <div style={{ background: "var(--bg-2)", border: "1px solid var(--border)", borderRadius: 14, padding: "20px", marginBottom: 24 }}>
-          <h2 style={{ color: "var(--white)", fontSize: "0.95rem", fontWeight: 700, marginBottom: 8 }}>Why Order from VapeInBangalore.in?</h2>
+          <h2 style={{ color: "var(--white)", fontSize: "0.95rem", fontWeight: 700, marginBottom: 8 }}>Why Order from VapeDeliveryBangalore.com?</h2>
           <div style={{ display: "flex", flexDirection: "column" as const, gap: 8 }}>
             {[
               "100% original products — sourced from authorised distributors",
@@ -131,7 +131,7 @@ export default function LocationPage({ params }: Props) {
             { q: `Is vape delivery available in ${loc.name}?`, a: `Yes — we deliver vapes to ${loc.name}, Bangalore in 30-45 minutes. Payment confirmed on WhatsApp before dispatch.` },
             { q: `What vapes are available in ${loc.name}?`, a: `We stock Elfbar disposables from Rs 1,199, Caliburn pod systems, ZYN nicotine pouches at Rs 1,299 and more — all available for delivery in ${loc.name}.` },
             { q: `What is the price of Elfbar in ${loc.name}?`, a: `Elfbar prices in ${loc.name} start from Rs 1,199 for the Elfbar 600 and go up to Rs 3,299 for the MoonNight 40K.` },
-            { q: `Are the products 100% original?`, a: `Yes — every product is sourced from authorised distributors and delivered sealed. VapeInBangalore.in is a trusted vape delivery service in Bangalore.` },
+            { q: `Are the products 100% original?`, a: `Yes — every product is sourced from authorised distributors and delivered sealed. VapeDeliveryBangalore.com is a trusted vape delivery service in Bangalore.` },
           ].map(faq => (
             <div key={faq.q} style={{ borderBottom: "1px solid var(--border)", paddingBottom: 12, marginBottom: 12 }}>
               <div style={{ fontWeight: 700, fontSize: "0.88rem", color: "var(--white)", marginBottom: 4 }}>{faq.q}</div>

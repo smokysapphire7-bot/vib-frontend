@@ -41,7 +41,7 @@ const TAG_COLORS: Record<string, { bg: string; color: string }> = {
 };
 
 function buildNotifyWAMessage(productName: string, phone: string): string {
-  return encodeURIComponent(`Hi VapeInBangalore, I want to be notified when ${productName} is back in stock. My number is ${phone}.`);
+  return encodeURIComponent(`Hi Vape Delivery Bangalore, I want to be notified when ${productName} is back in stock. My number is ${phone}.`);
 }
 
 export default function ProductGrid() {
@@ -280,7 +280,7 @@ export default function ProductGrid() {
       {/* ── WHATSAPP FLOAT ── */}
       {showWA && (
         <a
-          href={`https://wa.me/${ADMIN_PHONE}?text=Hi%20VapeInBangalore%2C%20I%20need%20help%20with%20my%20order`}
+          href={`https://wa.me/${ADMIN_PHONE}?text=Hi%20Vape Delivery Bangalore%2C%20I%20need%20help%20with%20my%20order`}
           target="_blank"
           rel="noopener noreferrer"
           className="wa-float"

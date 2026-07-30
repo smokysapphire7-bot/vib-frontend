@@ -17,11 +17,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.metaTitle,
     description: post.metaDescription,
-    alternates: { canonical: `https://vapeinbangalore.in/blog/${post.slug}` },
+    alternates: { canonical: `https://vapedeliverybangalore.com/blog/${post.slug}` },
     openGraph: {
       title: post.metaTitle,
       description: post.metaDescription,
-      url: `https://vapeinbangalore.in/blog/${post.slug}`,
+      url: `https://vapedeliverybangalore.com/blog/${post.slug}`,
       type: "article",
       publishedTime: post.publishedAt,
     },
@@ -169,7 +169,7 @@ export default function BlogPost({ params }: Props) {
         >
           <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6" stroke="white" strokeWidth="2"/><path d="M16 10a4 4 0 01-8 0" fill="none" stroke="white" strokeWidth="2"/></svg>
         </a>
-        <a href="https://wa.me/916282878843?text=Hi%20VapeInBangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore"
+        <a href="https://wa.me/916282878843?text=Hi%20Vape Delivery Bangalore%2C%20I%20want%20to%20order%20a%20vape%20in%20Bangalore"
           target="_blank" rel="noopener noreferrer"
           style={{ display: "flex", alignItems: "center", justifyContent: "center", width: 48, height: 48, background: "#25d366", borderRadius: "50%", boxShadow: "0 4px 16px rgba(37,211,102,0.4)", textDecoration: "none" }}
           title="Order on WhatsApp"
@@ -190,12 +190,12 @@ export default function BlogPost({ params }: Props) {
             datePublished: post.publishedAt,
             publisher: {
               "@type": "Organization",
-              name: "VapeInBangalore.in",
-              url: "https://vapeinbangalore.in",
+              name: "VapeDeliveryBangalore.com",
+              url: "https://vapedeliverybangalore.com",
             },
             mainEntityOfPage: {
               "@type": "WebPage",
-              "@id": `https://vapeinbangalore.in/blog/${post.slug}`,
+              "@id": `https://vapedeliverybangalore.com/blog/${post.slug}`,
             },
           }),
         }}
