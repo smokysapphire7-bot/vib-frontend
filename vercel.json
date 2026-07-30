@@ -3,7 +3,7 @@
     {
       "source": "/(.*)",
       "destination": "https://vapedeliverybangalore.com/$1",
-      "permanent": true,
+      "permanent": false,
       "statusCode": 301
     }
   ]
