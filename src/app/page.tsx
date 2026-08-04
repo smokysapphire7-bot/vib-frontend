@@ -22,7 +22,7 @@ const FEATURES = [
 ];
 
 export default function HomePage() {
-  const WHATSAPP_NUMBER = "919074445985";
+  const WHATSAPP_NUMBER = "916282878843";
   return (
     <>
       {/* HERO */}
