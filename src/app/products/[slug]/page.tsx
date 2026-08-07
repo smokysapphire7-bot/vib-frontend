@@ -6,7 +6,7 @@ import { products, getRelatedProducts } from "@/lib/products";
 
 interface Props { params: { slug: string } }
 
-const WHATSAPP = "916282878843";
+const WHATSAPP = "919074445985";
 
 export async function generateStaticParams() {
   return products.map(p => ({ slug: p.slug }));
